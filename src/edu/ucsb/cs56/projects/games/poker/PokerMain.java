@@ -37,6 +37,10 @@ public class PokerMain {
 	singlePlayerButton.addActionListener(listener);
 	panel.add(singlePlayerButton);
 
+	clientChatButton = new JButton("Connect to Poker Chat Server");
+	clientChatButton.addActionListener(listener);
+	panel.add(clientChatButton);
+
 	/*
 	serverButton = new JButton("Create Poker Server");
 	serverButton.addActionListener(listener);
@@ -48,11 +52,7 @@ public class PokerMain {
 		
 	serverChatButton = new JButton("Create Poker Chat Server");
 	serverChatButton.addActionListener(listener);
-	panel.add(serverChatButton);
-		
-	clientChatButton = new JButton("Connect to Poker Chat Server");
-	clientChatButton.addActionListener(listener);
-	panel.add(clientChatButton);
+	panel.add(serverChatButton);		
 	*/
 
 	playButtonFrame.add(BorderLayout.CENTER, panel);
@@ -72,6 +72,24 @@ public class PokerMain {
 	    if (src == singlePlayerButton) {
 		PokerSinglePlayer singlePlayer = new PokerSinglePlayer(500, 500);
 		singlePlayer.go();
+	    }
+	    else if(src == clientChatButton){
+		// address = JOptionPane.showInputDialog(playButtonFrame, "What IP Address are you connecting to?");
+		ChatServer server = new ChatServer();
+		ChatClient client = new ChatClient();
+		try {
+		    client.main();
+		    // server.main();
+		} catch (Exception e) {
+		    System.out.println("ERROR: Could not open server or client");
+		}
+
+		/*
+		if(address != null){
+		    client2.setServerAddress(address);
+		    client2.go();
+		}
+		*/
 	    }
 	    /*
 	    else if (src == serverButton) {
@@ -93,14 +111,6 @@ public class PokerMain {
 	    else if(src == serverChatButton){
 		PokerChatServer server2 = new PokerChatServer();
 		server2.go();
-	    }
-	    else if(src == clientChatButton){
-		address = JOptionPane.showInputDialog(playButtonFrame, "What IP Address are you connecting to?");
-		PokerChatClient client2 = new PokerChatClient();
-		if(address != null){
-		    client2.setAddress(address);
-		    client2.go();
-		}
 	    }
 	    */
 	    playButtonFrame.setVisible(false);

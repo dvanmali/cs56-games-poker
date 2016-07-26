@@ -2,5 +2,6 @@ javadoc/
 build/
 *.class
 *~
+*.java#
 .ant-targets-build.xml
 .idea/

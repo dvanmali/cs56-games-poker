@@ -182,7 +182,7 @@ final class PokerSinglePlayer extends PokerGame {
     						       JOptionPane.YES_NO_OPTION);
     	    if (option == JOptionPane.YES_OPTION) {
     		// Restart
-		mainFrame.dispose();
+	        mainFrame.dispose();
 		
 		// First check if players have enough chips
 		if(opponent.getChips() < 5) {
