@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.games.poker;
+/*package edu.ucsb.cs56.projects.games.poker;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -105,7 +105,7 @@ public class PokerChatClient {
 	}
     }
     */ //this is a test for username with the sendMessageButton Listener
-    
+/*  
     public class IncomingReader implements Runnable{
 	public void run(){
 	    String message;
@@ -135,3 +135,4 @@ public class PokerChatClient {
     }
 		
 }
+*/
