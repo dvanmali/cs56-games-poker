@@ -200,6 +200,8 @@ final class PokerSinglePlayer extends PokerGame {
 		} else if (player.getChips() < 5) {
 		    gameOver("GAME OVER! You have run out of chips!");
 		}
+		
+		gameOver("");
 	    } 
 
 	    else {
