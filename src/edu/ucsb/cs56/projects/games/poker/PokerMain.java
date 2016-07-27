@@ -71,6 +71,9 @@ public class PokerMain {
 	    else if (src == serverButton) {
 		PokerServer server = new PokerServer();
 		server.go();
+		PokerChatServer server2 = new PokerChatServer();
+		server2.go();
+		
 	    } 
 	    else if (src == clientButton) {
 		PokerClient client = new PokerClient();
@@ -82,6 +85,13 @@ public class PokerMain {
 		    } catch (IOException ex){ex.printStackTrace();
 		    }
 		}
+		address = JOptionPane.showInputDialog(playButtonFrame, "What IP Address are you connecting to?");
+		PokerChatClient client2 = new PokerChatClient();
+		if(address != null){
+		    client2.setAddress(address);
+		    client2.go();
+		}
+		
 	    }
 	    
 	    else if(src == serverChatButton){
