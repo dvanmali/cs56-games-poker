@@ -10,6 +10,10 @@ final class PokerSinglePlayer extends PokerGame {
     Timer timer;
     int timer_value = 1500; // milliseconds
     boolean yourTurnToBet = true;
+    
+    public PokerSinglePlayer() {
+
+    }
 
     /**
      * Constructor to set the player and opponent's initial chips. 
@@ -183,21 +187,22 @@ final class PokerSinglePlayer extends PokerGame {
     	    if (option == JOptionPane.YES_OPTION) {
     		// Restart
 		mainFrame.dispose();
-		
-		// First check if players have enough chips
-		if(opponent.getChips() < 5) {
-		    gameOver("GAME OVER!\n\n opponent has run out of chips!");
-		} else if (player.getChips() < 5) {
-		    gameOver("GAME OVER!\n\n you have run out of chips!");
-		}
-		
+						
 		// Create new game
-		PokerSinglePlayer singlePlayerReplay = new PokerSinglePlayer(player.getChips(),
-									     opponent.getChips());
+		PokerSinglePlayer singlePlayerReplay = new PokerSinglePlayer(); //player.getChips(),
+									     //opponent.getChips());
 		singlePlayerReplay.go();
-	    } else if (option == JOptionPane.NO_OPTION) {
-		gameOver("");
-	    } else {
+	    } 
+	    
+	    else if (option == JOptionPane.NO_OPTION) {
+		if(opponent.getChips() < 5) {
+		    gameOver("GAME OVER! The opponent has run out of chips!");
+		} else if (player.getChips() < 5) {
+		    gameOver("GAME OVER! You have run out of chips!");
+		}
+	    } 
+
+	    else {
     		// Quit
     		System.exit(1);
     	    }
